@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elasticsearch Management UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Elasticsearch Management</h1>
+        <div class="flex-container">
+            <!-- Left side: Input Section -->
+            <div class="input-section">
+                <div id="message"></div>
+
+                <!-- File Upload -->
+                <div class="upload-section">
+                    <label for="csvFile">Upload CSV File: </label>
+                    <input type="file" id="csvFile" accept=".csv">
+                    <button onclick="uploadCSV()">Upload and Index</button>
+                </div>
+
+                <!-- Collection Management -->
+                <div class="collection-section">
+                    <button onclick="createCollection(v_nameCollection)">Create Collection (Name)</button>
+                    <button onclick="createCollection(v_phoneCollection)">Create Collection (Phone)</button>
+                </div>
+
+                <!-- Employee Count -->
+                <div class="count-section">
+                    <button onclick="getEmpCount(v_nameCollection)">Get Employee Count (Name)</button>
+                    <button onclick="getEmpCount(v_phoneCollection)">Get Employee Count (Phone)</button>
+                </div>
+
+                <!-- Search Section -->
+                <div class="search-section">
+                    <label for="searchDept">Search by Department: </label>
+                    <input type="text" id="searchDept" placeholder="e.g., IT">
+                    <button onclick="searchByColumn(v_nameCollection, 'Department', document.getElementById('searchDept').value)">Search (Name)</button>
+
+                    <label for="searchGender">Search by Gender: </label>
+                    <input type="text" id="searchGender" placeholder="e.g., Male">
+                    <button onclick="searchByColumn(v_phoneCollection, 'Gender', document.getElementById('searchGender').value)">Search (Phone)</button>
+                </div>
+
+                <!-- Delete Section -->
+                <div class="delete-section">
+                    <label for="empId">Delete Employee by ID: </label>
+                    <input type="text" id="empId" placeholder="e.g., E02003">
+                    <button onclick="delEmpById(v_nameCollection, document.getElementById('empId').value)">Delete</button>
+                </div>
+            </div>
+
+            <!-- Right side: Data Table -->
+            <div class="output-section">
+                <div id="results">
+                    <table id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Full Name</th>
+                                <th>Job Title</th>
+                                <th>Department</th>
+                                <th>Business Unit</th>
+                                <th>Gender</th>
+                                <th>Ethnicity</th>
+                                <th>Age</th>
+                                <th>Hire Date</th>
+                                <th>Annual Salary</th>
+                                <th>Bonus %</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Exit Date</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+     <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+        <h1 style="text-align: center; color: #333;">Contact Information</h1>
+        <hr style="border: 1px solid #ccc;">
+        <div style="margin: 20px 0;">
+            <h3 style="color: #007BFF;">Email:</h3>
+            <p style="font-size: 18px; color: #555;">
+                <a href="mailto:maitheen1905@gmail.com" style="text-decoration: none; color: #007BFF;">
+                    maitheen1905@gmail.com
+                </a>
+            </p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h3 style="color: #007BFF;">LinkedIn:</h3>
+            <p style="font-size: 18px; color: #555;">
+                <a href="https://www.linkedin.com/in/maithen/" target="_blank" style="text-decoration: none; color: #007BFF;">
+                    https://www.linkedin.com/in/maithen/
+                </a>
+            </p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h3 style="color: #007BFF;">GitHub:</h3>
+            <p style="font-size: 18px; color: #555;">
+                <a href="https://github.com/maithenkumar" target="_blank" style="text-decoration: none; color: #007BFF;">
+                    https://github.com/maithenkumar
+                </a>
+            </p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h3 style="color: #007BFF;">Portfolio:</h3>
+            <p style="font-size: 18px; color: #555;">
+                <a href="https://maithenkumar.vercel.app/" target="_blank" style="text-decoration: none; color: #007BFF;">
+                    https://maithenkumar.vercel.app/
+                </a>
+            </p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h3 style="color: #007BFF;">Phone:</h3>
+            <p style="font-size: 18px; color: #555;">+91 6379284124</p>
+        </div>
+    </div>
+</body>
+</html>
+
